@@ -1,3 +1,4 @@
+
 /*========================
 
 EXPLORER MATRIX
@@ -855,5 +856,425 @@ font-size:20px;
 font-size:13px;
 
 }
+
+=======
+:root {
+
+  --primary-color: #1f2937;
+  --accent-color: #fb8b24;
+  --bg-light: #fbfbfb;
+  --text-dark: #27272a;
+
+  --transition-smooth: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
+
+}
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+font-family:Poppins,sans-serif;
+
+}
+
+body{
+
+background:var(--bg-light);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+padding:70px 20px;
+
+color:var(--text-dark);
+
+}
+
+.booking-card{
+
+width:100%;
+
+max-width:850px;
+
+background:white;
+
+padding:45px;
+
+border-radius:25px;
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.tabs{
+
+display:flex;
+
+gap:15px;
+
+margin-bottom:40px;
+
+}
+
+.tab{
+
+flex:1;
+
+border:none;
+
+background:#eef2f3;
+
+padding:15px;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:15px;
+
+transition:var(--transition-smooth);
+
+}
+
+.tab.active{
+
+background:var(--primary-color);
+
+color:white;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+.input-group{
+
+position:relative;
+
+margin-bottom:35px;
+
+}
+
+.input-group input{
+
+width:100%;
+
+padding:18px 10px 8px;
+
+border:none;
+
+border-bottom:2px solid #d7d7d7;
+
+background:transparent;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+.input-group label{
+
+position:absolute;
+
+left:10px;
+
+top:17px;
+
+pointer-events:none;
+
+transition:.3s;
+
+color:#888;
+
+}
+
+.input-group input:focus+label,
+
+.input-group input:valid+label{
+
+top:-10px;
+
+font-size:12px;
+
+color:var(--primary-color);
+
+background:white;
+
+padding:0 6px;
+
+}
+
+.input-group span{
+
+position:absolute;
+
+left:50%;
+
+bottom:0;
+
+width:0;
+
+height:2px;
+
+background:var(--accent-color);
+
+transition:.4s;
+
+transform:translateX(-50%);
+
+}
+
+.input-group input:focus~span{
+
+width:100%;
+
+}
+
+.search-btn{
+
+width:100%;
+
+margin-top:15px;
+
+padding:18px;
+
+border:none;
+
+background:var(--primary-color);
+
+color:white;
+
+font-size:16px;
+
+border-radius:50px;
+
+cursor:pointer;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+.search-btn:hover{
+
+background:#133b47;
+
+}
+
+.loader{
+
+position:absolute;
+
+width:22px;
+
+height:22px;
+
+border-radius:50%;
+
+border:3px solid rgba(255,255,255,.3);
+
+border-top:3px solid white;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+display:none;
+
+animation:spin .8s linear infinite;
+
+}
+
+.checkmark{
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%) scale(0);
+
+font-size:28px;
+
+display:block;
+
+transition:.4s;
+
+}
+
+.loading .btn-text{
+
+opacity:0;
+
+}
+
+.loading .loader{
+
+display:block;
+
+}
+
+.success .btn-text{
+
+opacity:0;
+
+}
+
+.success .loader{
+
+display:none;
+
+}
+
+.success .checkmark{
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:translate(-50%,-50%) rotate(360deg);
+
+}
+
+}
+
+.trip{
+
+width:100%;
+
+max-width:850px;
+
+margin-top:60px;
+
+}
+
+.trip h2{
+
+margin-bottom:25px;
+
+font-weight:600;
+
+}
+
+.accordion-item{
+
+background:white;
+
+margin-bottom:15px;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.accordion-header{
+
+width:100%;
+
+padding:22px;
+
+background:none;
+
+border:none;
+
+display:flex;
+
+justify-content:space-between;
+
+cursor:pointer;
+
+font-size:16px;
+
+}
+
+.accordion-content{
+
+max-height:0;
+
+overflow:hidden;
+
+transition:max-height .45s ease;
+
+padding:0 22px;
+
+}
+
+.accordion-content p{
+
+padding-bottom:20px;
+
+line-height:1.8;
+
+}
+
+.accordion-item.active .accordion-content{
+
+max-height:250px;
+
+}
+
+.accordion-item.active span{
+
+transform:rotate(45deg);
+
+transition:.3s;
+
+}
+
+@media(max-width:700px){
+
+.booking-card{
+
+padding:30px;
+
+}
+
+.tabs{
+
+flex-direction:column;
+
+}
+
+}
+/* Date inputs */
+input[type="date"] {
+    padding: 22px 12px 10px;
+}
+
+/* Keep label above date field */
+input[type="date"] + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    background: #fff;
+    padding: 0 6px;
+    color: var(--primary-color);
 
 }
