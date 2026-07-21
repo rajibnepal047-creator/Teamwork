@@ -1,0 +1,859 @@
+/*========================
+
+EXPLORER MATRIX
+
+========================*/
+
+.explorer{
+
+padding:110px 8%;
+
+background:#fafafa;
+
+}
+
+.section-header{
+
+text-align:center;
+
+margin-bottom:55px;
+
+}
+
+.sub-title{
+
+font-size:14px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#888;
+
+}
+
+.section-header h2{
+
+font-size:46px;
+
+margin-top:10px;
+
+color:#111;
+
+}
+
+/* FILTER */
+
+.filter-nav{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+margin-bottom:70px;
+
+}
+
+.filter-nav button{
+
+background:none;
+
+border:none;
+
+padding:14px 28px;
+
+font-size:15px;
+
+cursor:pointer;
+
+position:relative;
+
+color:#555;
+
+font-weight:500;
+
+transition:.35s;
+
+}
+
+.filter-nav button::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:0;
+
+width:0;
+
+height:2px;
+
+background:#111;
+
+transform:translateX(-50%);
+
+transition:.4s;
+
+}
+
+.filter-nav button:hover::after,
+
+.filter-nav .active::after{
+
+width:80%;
+
+}
+
+.filter-nav button:hover,
+
+.filter-nav .active{
+
+color:#111;
+
+}
+
+/* GRID */
+
+.destination-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+
+}
+
+/* CARD */
+
+.destination-card{
+
+position:relative;
+
+height:470px;
+
+border-radius:26px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+background:#fff;
+
+transition:.45s ease;
+
+transform-style:preserve-3d;
+
+box-shadow:0 8px 30px rgba(0,0,0,.06);
+
+}
+
+/* IMAGE */
+
+.destination-card .image{
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+}
+
+.destination-card img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:1.2s ease;
+
+}
+
+/* DARK OVERLAY */
+
+.destination-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(
+
+transparent 35%,
+
+rgba(0,0,0,.15),
+
+rgba(0,0,0,.75)
+
+);
+
+z-index:1;
+
+}
+
+/* CONTENT */
+
+.overlay{
+
+position:absolute;
+
+left:0;
+
+bottom:-70px;
+
+width:100%;
+
+padding:35px;
+
+z-index:2;
+
+color:white;
+
+transition:.55s;
+
+}
+
+.overlay span{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+opacity:.8;
+
+}
+
+.overlay h3{
+
+margin:12px 0;
+
+font-size:30px;
+
+}
+
+.overlay p{
+
+opacity:0;
+
+transform:translateY(25px);
+
+transition:.45s;
+
+line-height:1.8;
+
+}
+
+/* HOVER */
+
+.destination-card:hover{
+
+transform:
+
+perspective(1200px)
+
+rotateX(4deg)
+
+rotateY(-4deg)
+
+translateY(-12px)
+
+scale(1.02);
+
+box-shadow:
+
+0 35px 70px rgba(0,0,0,.18);
+
+}
+
+/* IMAGE PAN */
+
+.destination-card:hover img{
+
+transform:scale(1.12) translateX(2%) translateY(-2%);
+
+}
+
+/* CONTENT REVEAL */
+
+.destination-card:hover .overlay{
+
+bottom:0;
+
+}
+
+.destination-card:hover p{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.destination-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.destination-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.section-header h2{
+
+font-size:36px;
+
+}
+
+.destination-card{
+
+height:420px;
+
+}
+
+.filter-nav{
+
+gap:10px;
+
+}
+
+.filter-nav button{
+
+padding:10px 18px;
+
+}
+
+}
+/*========================
+
+FEATURED DESTINATION CIRCLE
+
+=========================*/
+
+.destination-showcase{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin:20px 0 80px;
+
+}
+
+.circle-slider{
+
+position:relative;
+
+width:340px;
+
+height:340px;
+
+border-radius:50%;
+
+overflow:hidden;
+
+box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+background:#fff;
+
+}
+
+.circle-slider img{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+opacity:0;
+
+transform:scale(1);
+
+animation:slider 24s infinite;
+
+transition:all .8s;
+
+}
+
+/* Image timing */
+
+.circle-slider img:nth-child(1){
+
+animation-delay:0s;
+
+}
+
+.circle-slider img:nth-child(2){
+
+animation-delay:4s;
+
+}
+
+.circle-slider img:nth-child(3){
+
+animation-delay:8s;
+
+}
+
+.circle-slider img:nth-child(4){
+
+animation-delay:12s;
+
+}
+
+.circle-slider img:nth-child(5){
+
+animation-delay:16s;
+
+}
+
+.circle-slider img:nth-child(6){
+
+animation-delay:20s;
+
+}
+
+/* Animation */
+
+@keyframes slider{
+
+0%{
+
+opacity:0;
+
+transform:scale(1);
+
+}
+
+5%{
+
+opacity:1;
+
+transform:scale(1.05);
+
+}
+
+25%{
+
+opacity:1;
+
+transform:scale(1.15);
+
+}
+
+30%{
+
+opacity:0;
+
+transform:scale(1.22);
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+/* Soft outer ring */
+
+.circle-slider::after{
+
+content:"";
+
+position:absolute;
+
+inset:-12px;
+
+border:2px solid rgba(0,0,0,.08);
+
+border-radius:50%;
+
+pointer-events:none;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.circle-slider{
+
+width:250px;
+
+height:250px;
+
+}
+
+}
+/*====================================
+
+LUXURY DESTINATION SHOWCASE
+
+=====================================*/
+
+.destination-showcase{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px 0 90px;
+
+}
+
+/* Main Circle */
+
+.circle-slider{
+
+position:relative;
+
+width:420px;
+
+height:420px;
+
+border-radius:50%;
+
+overflow:hidden;
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.12);
+
+animation:rotateRing 40s linear infinite;
+
+}
+
+/* Images */
+
+.circle-slider img{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+opacity:0;
+
+animation:imageFade 24s infinite;
+
+}
+
+/* Delay */
+
+.circle-slider img:nth-child(1){animation-delay:0s;}
+.circle-slider img:nth-child(2){animation-delay:4s;}
+.circle-slider img:nth-child(3){animation-delay:8s;}
+.circle-slider img:nth-child(4){animation-delay:12s;}
+.circle-slider img:nth-child(5){animation-delay:16s;}
+.circle-slider img:nth-child(6){animation-delay:20s;}
+
+/* Image Animation */
+
+@keyframes imageFade{
+
+0%{
+
+opacity:0;
+transform:scale(1);
+
+}
+
+8%{
+
+opacity:1;
+transform:scale(1.08);
+
+}
+
+25%{
+
+opacity:1;
+transform:scale(1.18);
+
+}
+
+33%{
+
+opacity:0;
+transform:scale(1.25);
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+/* Slow Rotation */
+
+@keyframes rotateRing{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* Center Glass */
+
+.circle-content{
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:250px;
+
+height:250px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.82);
+
+backdrop-filter:blur(18px);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:25px;
+
+z-index:100;
+
+animation:textPop 3s ease-in-out infinite;
+
+}
+
+/* Keep text upright while parent rotates */
+
+.circle-content{
+
+animation:
+textPop 3s ease-in-out infinite,
+counterRotate 40s linear infinite;
+
+}
+
+@keyframes counterRotate{
+
+from{
+
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+
+}
+
+to{
+
+transform:
+translate(-50%,-50%)
+rotate(-360deg);
+
+}
+
+}
+
+/* Pop Animation */
+
+@keyframes textPop{
+
+0%,100%{
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+}
+
+50%{
+
+transform:
+translate(-50%,-50%)
+scale(1.08);
+
+}
+
+}
+
+.circle-content span{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#666;
+
+margin-bottom:12px;
+
+}
+
+.circle-content h2{
+
+font-size:28px;
+
+font-weight:600;
+
+line-height:1.2;
+
+color:#111;
+
+margin-bottom:15px;
+
+}
+
+.circle-content p{
+
+font-size:15px;
+
+color:#666;
+
+}
+
+/* Premium Rotating Border */
+
+.circle-slider::before{
+
+content:"";
+
+position:absolute;
+
+inset:-8px;
+
+border:2px dashed rgba(255,255,255,.55);
+
+border-radius:50%;
+
+animation:rotateBorder 15s linear infinite;
+
+z-index:20;
+
+}
+
+@keyframes rotateBorder{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(-360deg);
+
+}
+
+}
+
+/* Glow Ring */
+
+.circle-slider::after{
+
+content:"";
+
+position:absolute;
+
+inset:-18px;
+
+border-radius:50%;
+
+border:1px solid rgba(0,0,0,.08);
+
+z-index:-1;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.circle-slider{
+
+width:300px;
+
+height:300px;
+
+}
+
+.circle-content{
+
+width:180px;
+
+height:180px;
+
+padding:18px;
+
+}
+
+.circle-content h2{
+
+font-size:20px;
+
+}
+
+.circle-content p{
+
+font-size:13px;
+
+}
+
+}
