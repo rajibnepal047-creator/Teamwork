@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,6 @@
 </head>
 <body>
 
-    <!-- MINIMALIST FIXED HEADER -->
     <header class="navbar">
         <div class="container navbar-container">
             <a href="#" class="logo">Gantabya<span>.</span></a>
@@ -24,7 +24,6 @@
         </div>
     </header>
 
-    <!-- STARK MINIMAL HERO -->
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-text-section">
@@ -34,20 +33,19 @@
                 <p>Welcome to Gantabya Agro Holiday Resort. Escape to crisp organic fresh air, natural vistas, and curated escape routes built entirely for you.</p>
                 <a href="#tours" class="hero-cta">Discover Experiences</a>
             </div>
-            
-            <!-- Fine-Art Frame Image Component -->
+          
             <div class="hero-media-frame">
                 <img class="hero-media" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1800" alt="Minimal landscape view">
             </div>
         </div>
 
-        <!-- LINEAR SCROLL INDICATOR -->
+        
         <a href="#next-section" class="scroll-indicator" aria-label="Scroll down">
             <div class="scroll-line"></div>
         </a>
     </section>
 
-    <!-- CONTENT FOLD -->
+    
     <main id="next-section" class="main-content">
         <div class="container content-container">
             <span class="section-tag">01 / Introduction</span>
@@ -60,5 +58,248 @@
 </html>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Engine</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="booking-card">
+
+    <div class="tabs">
+
+        <button class="tab active">Stays</button>
+        <button class="tab">Flights</button>
+        <button class="tab">Experiences</button>
+
+    </div>
+
+<form>
+
+<div class="input-group">
+
+<input type="text" required>
+
+<label>Destination</label>
+
+<span></span>
+
+</div>
 
 
+<div class="grid">
+
+<div class="input-group">
+
+<input type="date" required>
+
+<label>Check In</label>
+
+<span></span>
+
+</div>
+
+
+<div class="input-group">
+
+<input type="date" required>
+
+<label>Check Out</label>
+
+<span></span>
+
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="input-group">
+
+<input type="number" required>
+
+<label>Guests</label>
+
+<span></span>
+
+</div>
+
+<div class="input-group">
+
+<input type="number" required>
+
+<label>Rooms</label>
+
+<span></span>
+
+</div>
+
+</div>
+
+<button class="search-btn">
+
+<span class="btn-text">Search</span>
+
+<span class="loader"></span>
+
+<span class="checkmark">✓</span>
+
+</button>
+
+</form>
+
+</div>
+
+<section class="trip">
+
+<h2>Sample 3-Day Trip</h2>
+
+<div class="accordion">
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+Day 1 — Arrival
+
+<span>+</span>
+
+</button>
+
+<div class="accordion-content">
+
+<p>
+
+Arrival at destination, hotel check-in, local market visit,
+
+and sunset dinner by the beach.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+Day 2 — Adventure
+
+<span>+</span>
+
+</button>
+
+<div class="accordion-content">
+
+<p>
+
+Mountain hiking, scenic viewpoints, kayaking,
+
+and evening cultural performances.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+Day 3 — Relax
+
+<span>+</span>
+
+</button>
+
+<div class="accordion-content">
+
+<p>
+
+Spa session, café hopping,
+
+shopping and departure.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const tabs=document.querySelectorAll(".tab");
+
+tabs.forEach(tab=>{
+
+tab.onclick=()=>{
+
+tabs.forEach(t=>t.classList.remove("active"));
+
+tab.classList.add("active");
+
+};
+
+});
+
+
+const btn=document.querySelector(".search-btn");
+
+btn.onclick=(e)=>{
+
+e.preventDefault();
+
+btn.classList.add("loading");
+
+setTimeout(()=>{
+
+btn.classList.remove("loading");
+
+btn.classList.add("success");
+
+setTimeout(()=>{
+
+btn.classList.remove("success");
+
+},1800);
+
+},1800);
+
+};
+
+
+document.querySelectorAll(".accordion-header").forEach(btn=>{
+
+btn.onclick=()=>{
+
+const item=btn.parentElement;
+
+item.classList.toggle("active");
+
+};
+
+});
+
+</script>
+
+</body>
+</html>
