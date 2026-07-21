@@ -416,4 +416,5 @@ input[type="date"] + label {
     background: #fff;
     padding: 0 6px;
     color: var(--primary-color);
+    
 }
